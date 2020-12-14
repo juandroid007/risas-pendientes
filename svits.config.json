@@ -1,0 +1,18 @@
+{
+  "name": "Risas Pendientes",
+  "shortName": "Risas Pendientes",
+  "description": "Risas Pendientes",
+  "author": {
+    "name": "Marketing Shakers",
+    "email": "",
+    "url": ""
+  },
+  "collections": [
+  ],
+  "hostname": "https://risaspendientes.netlify.app",
+  "sitemapUrls": [
+  ],
+  "routifyRuntimeConfig": {
+    "useHash": false
+  }
+}

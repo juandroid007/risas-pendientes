@@ -1,0 +1,37 @@
+@import 'tailwindcss/base.css';
+@import 'tailwindcss/components.css';
+@import 'tailwindcss/utilities.css';
+
+html {
+	@apply duration-200;
+	@apply transition-colors;
+}
+
+.cursor-bg {
+	background: white;
+}
+
+html.dark, .dark .cursor-bg {
+	background: #222;
+}
+
+pre, code {
+	@apply text-gray-700;
+}
+
+.dark pre, .dark code {
+	@apply text-gray-400;
+}
+
+.content {
+	@apply px-6;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+@screen lg {
+	.content {
+		width: 80%;
+	}
+}

@@ -1,0 +1,130 @@
+backend:
+  name: git-gateway
+  branch: master # Branch to update (optional; defaults to master)
+
+local_backend: true
+media_folder: "public/images/uploads" # Media files will be stored in the repo under images/uploads
+public_folder: "uploads"
+publish_mode: editorial_workflow
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "_"
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    editor:
+      preview: false
+    label: "Posts" # Used in the UI
+    folder: "src/pages/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    preview_path: "blog/{{slug}}"
+    format: "frontmatter"
+    media_folder: "/public/images/uploads/blog/{{year}}-{{month}}-{{day}}-{{slug}}" # Media files will be stored in the repo under images/uploads
+    public_folder: "uploads/blog/{{year}}-{{month}}-{{day}}-{{slug}}"
+    sort: "date:desc" # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - {label: "Id", name: "id", widget: "hidden", default: "{{uuid}}"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Summary", name: "description", widget: "text"}
+      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", picker_utc: true}
+      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "pages" # Used in routes, e.g., /admin/collections/blog
+    label: "Pages" # Used in the UI
+    files:
+      - label: "Menu" # Used in the UI
+        name: "menu" # Used in routes, e.g., /admin/collections/blog
+        editor:
+          preview: false
+        file: "src/content/pages/menu/index.json" # The path to the folder where the documents are stored
+        create: true # Allow users to create new documents in this collection
+        format: "json"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Filterable", name: "filterable", widget: "hidden", default: false}
+          - {label: "Description", name: "description", widget: "text"}
+      - label: "Breakfast Boxes Menu" # Used in the UI
+        name: "breakfast-boxes" # Used in routes, e.g., /admin/collections/blog
+        editor:
+          preview: false
+        file: "src/content/pages/menu/breakfast-boxes.json" # The path to the folder where the documents are stored
+        create: true # Allow users to create new documents in this collection
+        format: "json"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Breakfast Boxes"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Description", name: "description", widget: "text"}
+      - label: "Sandwich Box Lunches Menu" # Used in the UI
+        name: "sandwich-box-lunches" # Used in routes, e.g., /admin/collections/blog
+        editor:
+          preview: false
+        file: "src/content/pages/menu/sandwich-box-lunches.json" # The path to the folder where the documents are stored
+        create: true # Allow users to create new documents in this collection
+        format: "json"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Sandwich Box Lunches"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Description", name: "description", widget: "text"}
+      - label: "Box Meals Menu" # Used in the UI
+        name: "box-meals" # Used in routes, e.g., /admin/collections/blog
+        editor:
+          preview: false
+        file: "src/content/pages/menu/box-meals.json" # The path to the folder where the documents are stored
+        create: true # Allow users to create new documents in this collection
+        format: "json"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Box Meals"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Description", name: "description", widget: "text"}
+      - label: "Salad Box Lunches Menu" # Used in the UI
+        name: "salad-box-lunches" # Used in routes, e.g., /admin/collections/blog
+        editor:
+          preview: false
+        file: "src/content/pages/menu/salad-box-lunches.json" # The path to the folder where the documents are stored
+        create: true # Allow users to create new documents in this collection
+        format: "json"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "Salad Box Lunches"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Description", name: "description", widget: "text"}
+      - label: "BBQ Box Meals Menu" # Used in the UI
+        name: "bbq-box-meals" # Used in routes, e.g., /admin/collections/blog
+        editor:
+          preview: false
+        file: "src/content/pages/menu/bbq-box-meals.json" # The path to the folder where the documents are stored
+        create: true # Allow users to create new documents in this collection
+        format: "json"
+        fields: # The fields for each document, usually in front matter
+          - {label: "Title", name: "title", widget: "hidden", default: "BBQ Box Meals"}
+          - {label: "Image", name: "image", widget: "image"}
+          - {label: "Description", name: "description", widget: "text"}
+
+  - name: "Menu" # Used in routes, e.g., /admin/collections/blog
+    editor:
+      preview: false
+    label: "Menu Dishes" # Used in the UI
+    folder: "src/menu" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    format: "json"
+    sort: "date:desc" # Default is title:asc
+    fields: # The fields for each document, usually in front matter
+      - {label: "Id", name: "id", widget: "hidden", default: "{{slug}}"}
+      - {label: "title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime", date_format: "DD/MM/YYYY", time_format: "HH:mm", picker_utc: true}
+      - {label: "Price", name: "price", widget: "number", value_type: "float"}
+      - label: "Menu type"
+        name: "type"
+        widget: "select"
+        options:
+          - { label: "Breakfast Boxes", value: "breakfast-boxes" }
+          - { label: "Sandwich Box Lunches", value: "sandwich-box-lunches" }
+          - { label: "Box Meals", value: "box-meals" }
+          - { label: "Salad Box Lunches", value: "salad-box-lunches" }
+          - { label: "BBQ Box Meals", value: "bbq-box-meals" }
+
+      - {label: "Image", name: "thumbnail", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
