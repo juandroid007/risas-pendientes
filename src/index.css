@@ -7,20 +7,31 @@ html {
 	@apply transition-colors;
 }
 
-.cursor-bg {
-	background: white;
+.bg:not(.bg2) {
+	--gradient-from: rgba(249, 244, 144, 0.8);
+	--gradient-to: rgba(218, 208, 11, 0.8);
 }
 
-html.dark, .dark .cursor-bg {
-	background: #222;
+.bg2 {
+	--gradient-from: rgba(18, 105, 140, 0.8);
+	--gradient-to: rgba(6, 37, 50, 0.8);
 }
 
-pre, code {
-	@apply text-gray-700;
+.bg {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: linear-gradient(to bottom right, var(--gradient-from), var(--gradient-to)), url(/images/bg.jpg);
 }
 
-.dark pre, .dark code {
-	@apply text-gray-400;
+.text-risas {
+	@apply p-2;
+	@apply font-bold;
+	@apply leading-none;
+	@apply bg-summer-sky;
+	@apply max-w-max-content;
+	@apply text-paris-daisy;
+	@apply rounded-lg;
 }
 
 .content {

@@ -21,7 +21,7 @@
   }
 </script>
 
-<div class="flex flex-col w-full min-h-screen">
+<div class="flex flex-col w-full min-h-screen font-light">
   <main class="flex justify-center flex-grow w-full h-full overflow-hidden">
     <slot/>
   </main>

@@ -14,6 +14,7 @@
 <style>
   .huge {
     font-size: 12rem;
+    font-weight: lighter;
   }
 
   .e404 {
@@ -30,15 +31,14 @@
   <meta name="prerender-status-code" content="404">
 </svelte:head>
 
-<div class="flex w-full">
+<div class="flex w-full bg">
   <div class="py-16 m-auto overflow-hidden e404">
     {#if visible}
-      <div class="leading-none text-gray-500 i jam:cactus huge" in:fly={{y: -20, duration: 800}}></div>
+      <div class="mx-auto mb-6 leading-none text-gray-500 text-risas i jam:cactus huge" in:fly={{y: -20, duration: 800}}></div>
     {/if}
-    <div class="flex flex-col items-center big">
-      Page not found.
-      <!-- link to the parent folder of _fallback.svelte -->
-      <a class="text-blue-600 hover:underline" href={$url('/index')}>Ir a la página principal -&gt</a>
+    <div class="w-full mx-auto text-2xl text-center text-risas">Página no encontrada</div>
+    <div class="flex flex-col items-center mx-auto big">
+      <a class="mt-2 text-risas hover:underline" href={$url('/index')}>Ir a la página principal -&gt</a>
     </div>
   </div>
 </div>
