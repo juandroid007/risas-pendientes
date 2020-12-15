@@ -1,8 +1,8 @@
 const color = '#23ABE2'
 
 const iconsProps = {
-      // background: color,
-      offset: 5,
+      background: color,
+      offset: 10,
 }
 
 module.exports = {

@@ -21,10 +21,10 @@
 </span>
 <span slot="message">
   <span class="md:font-bold">
-    A new version is available.
+    Han habido cambios en el sitio.
   </span>
   <span class="hidden md:inline">
-    You can refresh now or wait until your next launch.
+    Puedes refrescar o esperar a la próxima visita.
   </span>
 </span>
 <div slot="button">
@@ -32,7 +32,7 @@
     on:click={() => { location.reload() }}
     white
     label="Reloads the page"
-    >Refresh</Button
+    >Refrescar</Button
   >
 </div>
 </Banner>
